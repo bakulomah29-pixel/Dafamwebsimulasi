@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dafam Hotel Pekalongan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#111;
+      overflow-x:hidden;
+      color:white;
+    }
+
+    .hero{
+      width:100%;
+      height:100vh;
+      background:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFo-3DFVJOGD2owYDijdaG4fnP0rnExw0UowfgCI818QBP37Jc8HJ4v0WZTgydPiAzrDEp9-gWyvNney_W1CmUZXzkA3sMbQ3cYZDh1z4zaDj65YtmAulwWlhmJXbLMKcriSeZ5=s680-w680-h510-rw') center/cover no-repeat;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.55);
+    }
+
+    .navbar{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      padding:20px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:10;
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:700;
+      letter-spacing:2px;
+      color:#fff;
+    }
+
+    .menu{
+      display:flex;
+      gap:30px;
+    }
+
+    .menu a{
+      color:white;
+      text-decoration:none;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .menu a:hover{
+      color:#d4af37;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:5;
+      text-align:center;
+      max-width:800px;
+      padding:20px;
+      animation:fadeUp 1.2s ease;
+    }
+
+    .hero-content h1{
+      font-size:68px;
+      font-weight:700;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:20px;
+      line-height:1.8;
+      color:#eee;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 40px;
+      border-radius:40px;
+      background:#d4af37;
+      color:#111;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      background:#fff;
+    }
+
+    .slider-section{
+      padding:80px 40px;
+      background:#181818;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      margin-bottom:10px;
+      color:#d4af37;
+    }
+
+    .section-title p{
+      color:#ccc;
+      font-size:17px;
+    }
+
+    .slider{
+      width:100%;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .slide-track{
+      display:flex;
+      width:calc(350px * 6);
+      animation:scroll 24s linear infinite;
+      gap:25px;
+    }
+
+    .card{
+      min-width:350px;
+      height:450px;
+      border-radius:25px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+      flex-shrink:0;
+    }
+
+    .card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .card:hover img{
+      transform:scale(1.08);
+    }
+
+    .card-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      display:flex;
+      align-items:flex-end;
+      padding:30px;
+    }
+
+    .card-content h3{
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .card-content p{
+      color:#ddd;
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .footer{
+      padding:30px;
+      text-align:center;
+      background:#101010;
+      color:#aaa;
+      font-size:14px;
+    }
+
+    @keyframes scroll {
+      0%{
+        transform:translateX(0);
+      }
+      100%{
+        transform:translateX(calc(-350px * 3));
+      }
+    }
+
+    @keyframes fadeUp {
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+      .navbar{
+        padding:20px;
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero-content h1{
+        font-size:42px;
+      }
+
+      .hero-content p{
+        font-size:16px;
+      }
+
+      .card{
+        min-width:280px;
+        height:380px;
+      }
+
+      .slide-track{
+        width:calc(280px * 6);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="navbar">
+      <div class="logo">Dafam Hotel Pekalongan</div>
+
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">Rooms</a>
+        <a href="#">Ball Room</a>
+        <a href="#">Restaurant</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1>Luxury Stay Experience</h1>
+      <p>
+        Nikmati pengalaman menginap mewah dengan fasilitas premium,
+        kamar elegan, ballroom eksklusif, dan restoran berkelas dunia.
+      </p>
+
+      <a href="#" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <section class="slider-section">
+    <div class="section-title">
+      <h2>Our Facilities</h2>
+      <p>Kenyamanan dan kemewahan dalam satu tempat</p>
+    </div>
+
+    <div class="slider">
+      <div class="slide-track">
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200&auto=format&fit=crop" alt="Room">
+          <div class="card-overlay">
+            <div class="card-content">
+              <h3>Luxury Room</h3>
+              <p>Kamar modern dengan desain elegan dan fasilitas premium.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop" alt="Ballroom">
+          <div class="card-overlay">
+            <div class="card-content">
+              <h3>Grand Ball Room</h3>
+              <p>Tempat terbaik untuk acara pernikahan dan meeting eksklusif.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop" alt="Restaurant">
+          <div class="card-overlay">
+            <div class="card-content">
+              <h3>Restaurant</h3>
+              <p>Hidangan spesial dengan suasana restoran mewah dan nyaman.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200&auto=format&fit=crop" alt="Room">
+          <div class="card-overlay">
+            <div class="card-content">
+              <h3>Luxury Room</h3>
+              <p>Kamar modern dengan desain elegan dan fasilitas premium.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop" alt="Ballroom">
+          <div class="card-overlay">
+            <div class="card-content">
+              <h3>Grand Ball Room</h3>
+              <p>Tempat terbaik untuk acara pernikahan dan meeting eksklusif.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop" alt="Restaurant">
+          <div class="card-overlay">
+            <div class="card-content">
+              <h3>Restaurant</h3>
+              <p>Hidangan spesial dengan suasana restoran mewah dan nyaman.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Deluxe Hotel • Luxury & Comfort Experience
+  </footer>
+
+</body>
+</html>
